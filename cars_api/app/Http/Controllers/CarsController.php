@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Cars;
 use App\Http\Requests\CarsRequest;
 
-// методы create и edit - для визуального отображения форм. У нас Rest API!! Удаляем....
-
 class CarsController extends Controller
 {
     /**
@@ -14,16 +12,15 @@ class CarsController extends Controller
      */
     public function index()
     {
-        return Cars::paginate(5);
+        return Cars::paginate(10);
     }
-
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(CarsRequest $request)
     {
-        return Cars::created($request-> validate());
+        return Cars::created($request->validate());
     }
 
     /**
@@ -39,8 +36,8 @@ class CarsController extends Controller
      */
     public function update(CarsRequest $request, Cars $cars)
     {
-        $cars->fill($request-> validate());
-        return $cars-> save();
+        $cars->fill($request->validate());
+        return $cars->save();
     }
 
     /**
@@ -48,7 +45,7 @@ class CarsController extends Controller
      */
     public function destroy(Cars $cars)
     {
-        if ($cars-> delete()) {
+        if($cars->delete()) {
             return response(null, 404);
         }
         return null;

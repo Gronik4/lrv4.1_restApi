@@ -22,9 +22,9 @@ class CarsRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'brand'=> ['required', 'string'],
-            'model'=> ['required', 'string'],
-            'price'=> ['required']
+            'brand'=>['required', 'string'],
+            'model'=>['required', 'string'],
+            'price'=>['required', 'string']
         ];
     }
 }

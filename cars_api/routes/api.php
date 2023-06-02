@@ -1,8 +1,8 @@
 <?php
 
+use App\Http\Requests\CarsRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CarsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,4 +18,5 @@ use App\Http\Controllers\CarsController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::apiResource('/cars', CarsController::class);
+
+Route::apiResource('/cars', CarsRequest::class);
